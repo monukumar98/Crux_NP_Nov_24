@@ -7,6 +7,7 @@ public class Binary_Tree_Client {
 		Binary_Tree bt = new Binary_Tree();
 		bt.Display();
 		System.out.println(bt.max());
+		System.out.println(bt.find(60));
 	}
 
 }
