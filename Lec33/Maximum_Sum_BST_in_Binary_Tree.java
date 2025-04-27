@@ -1,4 +1,5 @@
 package Lec33;
+
 public class Maximum_Sum_BST_in_Binary_Tree {
 	public class TreeNode {
 		int val;
@@ -21,9 +22,10 @@ public class Maximum_Sum_BST_in_Binary_Tree {
 
 	class Solution {
 		public int maxSumBST(TreeNode root) {
-			return ValidBST(root).sum;
+			return ValidBST(root).ans;
 
 		}
+
 		public BstPair ValidBST(TreeNode root) {
 			if (root == null) {
 				return new BstPair();
@@ -33,8 +35,13 @@ public class Maximum_Sum_BST_in_Binary_Tree {
 			BstPair sbp = new BstPair();
 			sbp.max = Math.max(root.val, Math.max(lbp.max, rbp.max));
 			sbp.min = Math.min(root.val, Math.min(lbp.min, rbp.min));
-			sbp.sum=lbp.sum+rbp.sum+root.val;
+			sbp.sum = lbp.sum + rbp.sum + root.val;
 			sbp.isbst = lbp.isbst && rbp.isbst && lbp.max < root.val && rbp.min > root.val;
+			if (sbp.isbst) {
+				sbp.ans = Math.max(sbp.sum, Math.max(lbp.ans, rbp.ans));
+			} else {
+				sbp.ans = Math.max(lbp.ans, rbp.ans);
+			}
 			return sbp;
 
 		}
@@ -43,18 +50,8 @@ public class Maximum_Sum_BST_in_Binary_Tree {
 			boolean isbst = true;
 			int min = Integer.MAX_VALUE;
 			int max = Integer.MIN_VALUE;
-			int sum=0;
+			int sum = 0;
+			int ans = 0;
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
