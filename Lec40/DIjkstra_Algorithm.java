@@ -44,7 +44,11 @@ public class DIjkstra_Algorithm {
 			@Override
 			public int compare(DIjkstraPair o1, DIjkstraPair o2) {
 				// TODO Auto-generated method stub
-				return o1.cost - o2.cost;
+//				if (o1.cost == o2.cost) {
+//					return o1.acqpath.length() - o2.acqpath.length();
+//				} else {
+					return o1.cost - o2.cost;
+//				}
 			}
 		});
 		HashSet<Integer> visited = new HashSet<>();
